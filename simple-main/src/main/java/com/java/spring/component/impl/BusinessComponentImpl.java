@@ -2,8 +2,10 @@ package com.java.spring.component.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.event.EventListener;
 
 import com.java.spring.component.BusinessComponent;
+import com.java.spring.listener.event.CustomApplicationEvent;
 
 public class BusinessComponentImpl implements BusinessComponent {
 
@@ -23,4 +25,5 @@ public class BusinessComponentImpl implements BusinessComponent {
 		return name;
 	}
 
+	
 }

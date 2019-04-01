@@ -12,6 +12,7 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import com.java.spring.component.BusinessComponent;
 import com.java.spring.component.impl.BusinessComponentImpl;
 import com.java.spring.listener.SimpleMainListener;
+import com.java.spring.listener.anno.SimpleMainListenerAnnotation;
 import com.java.spring.listener.event.CustomApplicationEvent;
 
 @Configuration
@@ -20,6 +21,12 @@ public class SimpleMainConfig {
 	@Value("${spring-boot.custom.property}")
 	private String property;
 
+
+	@Bean
+	public SimpleMainListenerAnnotation getAnnoListener() {
+		return new SimpleMainListenerAnnotation();
+	}
+	
 	@Bean
 	// @Lazy
 	public BusinessComponent getBusinessComponent(ApplicationEventPublisher appEventPublisher) {
@@ -31,6 +38,7 @@ public class SimpleMainConfig {
 	public SimpleMainListener getSimpleMainListener() {
 		return new SimpleMainListener();
 	}
+	
 	
 	@Bean(name="applicationEventMulticaster")
 	public ApplicationEventMulticaster getMulticaster() {
